@@ -2,7 +2,7 @@ function binarySearch(query, sorted) {
   let left = 0;
   let right = sorted.length - 1;
   while (left < right) {
-    let middle = Math.floor((left + right) / 2);
+    const middle = Math.floor((left + right) / 2);
     if (middle === query) {
       return true;
     }
