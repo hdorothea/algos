@@ -21,8 +21,26 @@ function binarySearch(query, sorted) {
   }
 }
 
-binarySearch(6, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]);
+function binarySearchRecursive(query, sorted) {
+  if (sorted.length === 0) {
+    return false;
+  }
+
+  const middleI = Math.floor((sorted.length - 1) / 2);
+  if (query === sorted[middleI]) {
+    return true;
+  }
+
+  if (query < sorted[middleI]) {
+    return binarySearchRecursive(query, sorted.slice(0, middleI));
+  } else {
+    return binarySearchRecursive(query, sorted.slice(middleI + 1, sorted.length));
+  }
+}
+
+console.log(binarySearchRecursive(0, [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]));
 
 module.exports = {
-  binarySearch
+  binarySearch,
+  binarySearchRecursive
 };
